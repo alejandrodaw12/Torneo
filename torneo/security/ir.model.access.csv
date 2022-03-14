@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_torneo_competidores_role1,torneo.competidores.role1,model_torneo_competidores,torneo.group_torneo_role1,1,1,1,1
+access_torneo_competicion_role1,torneo.competicion.role1,model_torneo_competicion,torneo.group_torneo_role1,1,1,1,1
+access_torneo_competidores_role2,torneo.competidores.role2,model_torneo_competidores,torneo.group_torneo_role2,1,0,0,1
+access_torneo_competicion_role2,torneo.competicion.role2,model_torneo_competicion,torneo.group_torneo_role2,1,0,0,0

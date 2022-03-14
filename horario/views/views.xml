@@ -1,0 +1,223 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="horario.list">
+      <field name="name">horario list</field>
+      <field name="model">horario.horario</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="horario.action_window">
+      <field name="name">horario window</field>
+      <field name="res_model">horario.horario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="horario.action_server">
+      <field name="name">horario server</field>
+      <field name="model_id" ref="model_horario_horario"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="horario" id="horario.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="horario.menu_1" parent="horario.menu_root"/>
+    <menuitem name="Menu 2" id="horario.menu_2" parent="horario.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="horario.menu_1_list" parent="horario.menu_1"
+              action="horario.action_window"/>
+    <menuitem name="Server to list" id="horario" parent="horario.menu_2"
+              action="horario.action_server"/>
+-->
+    <!-- VISTA ITINERARIO -->
+
+    <record model="ir.ui.view" id="horario.itinerario_view">
+        <field name="name">horario.itinerario.view.tree</field>
+        <field name="model">horario.itinerario</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA HORARIO</h1>
+                </group>
+              </group>
+              <notebook>
+                <page string="CREACION">
+                  <group col="2">
+                    <field name="nombreItinerario" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="inicioTorneo" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="arbitros_ids" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="reglas_ids" style="width:100%%"/>
+                  </group>
+                </page>
+                <page string="PRIMER ENCUENTRO">
+                  <group>
+                    <h3>PRIMER ENCUENTRO</h3>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <fiel name="competidores_id" style="20%"/>
+                    <field name="inicioPrimerEncuentro" style="width:20%%"/>
+                    <field name="finalPrimerEncuentro" style="width:20%%"/>
+                  </group>
+                </page>
+                <page string="SEGUNDO ENCUENTRO">
+                  <group>
+                    <h3>SEGUNDO ENCUENTRO</h3>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <fiel name="competidores_id" style="20%"/>
+                    <field name="inicioSegundoEncuentro" style="width:20%%"/>
+                    <field name="finalSegundoEncuentro" style="width:20%%"/>
+                  </group>
+                </page>
+                <page string="TERCER ENCUENTRO">
+                  <group>
+                    <h3>TERCER ENCUENTRO</h3>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <fiel name="competidores_id" style="20%"/>
+                    <field name="inicioTerceroEncuentro" style="width:20%%"/>
+                    <field name="finalTerceroEncuentro" style="width:20%%"/>
+                  </group>
+                </page>
+                <page string="CUARTO ENCUENTRO">
+                  <group>
+                    <h3>CUARTO ENCUENTRO</h3>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <fiel name="competidores_id" style="20%"/>
+                    <field name="inicioCuartoEncuentro" style="width:20%%"/>
+                    <field name="finalCuartoEncuentro" style="width:20%%"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="horario.itinerario_list_view">
+      <field name="name">horario.itinerario.view.tree</field>
+      <field name="model">horario.itinerario</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombreItinerario"/>
+          <field name="inicioTorneo"/>
+          <field name="inicioPrimerEncuentro"/>
+          <field name="finalPrimerEncuentro"/>
+          <field name="inicioSegundoEncuentro"/>
+          <field name="finalSegundoEncuentro"/>
+          <field name="inicioTerceroEncuentro"/>
+          <field name="finalTerceroEncuentro"/>
+          <field name="inicioCuartoEncuentro"/>
+          <field name="finalCuartoEncuentro"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="horario.arbitros_list_view">
+      <field name="name">horario.arbitros.view.tree</field>
+      <field name="model">horario.arbitros</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dniArbitro"/>
+          <field name="nombreArbitro"/>
+          <field name="fechaNacimiento"/>
+          <field name="edad"/>
+          <field name="añosArbitrando"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="horario.reglas_list_view">
+      <field name="name">horario.reglas.view.tree</field>
+      <field name="model">horario.reglas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="numeroRegla"/>
+          <field name="nombreRegla"/>
+          <field name="descripcionRegla"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- DEFINICION DE MENU -->
+
+    <record model="ir.actions.act_window" id="horario.itinerario_action_window">
+      <field name="name">Itinerario</field>
+      <field name="res_model">horario.itinerario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="horario.reglas_action_window">
+      <field name="name">Reglas</field>
+      <field name="res_model">horario.reglas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="horario.arbitros_action_window">
+      <field name="name">Arbitros</field>
+      <field name="res_model">horario.arbitros</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Horario" id="horario.menu_root"/>
+
+    <menuitem name="Horario" id="horario.menu_root" web_icon="horario,static/description/icon.png"/>
+
+    <menuitem name="Itinerario" id="horario.itinerario_menu" parent="horario.menu_root" action="horario.itinerario_action_window"/>
+    <menuitem name="Reglas" id="horario.reglas_menu" parent="horario.menu_root" action="horario.reglas_action_window"/>
+    <menuitem name="Arbitros" id="horario.arbitros_menu" parent="horario.menu_root" action="horario.arbitros_action_window"/>
+
+
+
+
+
+
+
+
+
+  </data>
+</odoo>

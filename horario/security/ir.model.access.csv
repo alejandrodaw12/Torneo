@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_horario_itinerario_role1,horario.itinerario.role1,model_horario_itinerario,horario.group_horario_role1,1,1,1,1
+access_horario_arbitros_role1,horario.arbitros.role1,model_horario_arbitros,horario.group_horario_role1,1,1,1,1
+access_horario_reglas_role1,horario.reglas.role1,model_horario_reglas,horario.group_horario_role1,1,1,1,1
+access_horario_itinerario_role2,horario.itinerario.role2,model_horario_itinerario,horario.group_horario_role2,1,0,0,1
+access_horario_arbitros_role2,horario.arbitros.role2,model_horario_arbitros,horario.group_horario_role2,1,0,0,1
+access_horario_reglas_role2,horario.reglas.role2,model_horario_reglas,horario.group_horario_role2,1,0,0,1
+
+

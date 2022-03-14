@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.module.category" id="horario.module_category_horario">
+            <field name="name">Horario</field>
+            <field name="description">Gestion y asignacion de horarios para el torneo</field>
+        </record>
+
+        <record model="res.groups" id="group_horario_role2">
+            <field name="name">Empleado</field>
+            <field name="category_id" ref="horario.module_category_horario"/>
+            <field name="comment">Empleado</field>
+        </record>
+
+        <record model="res.groups" id="group_horario_role1">
+            <field name="name">Organizador</field>
+            <field name="category_id" ref="horario.module_category_horario"/>
+            <field name="comment">Organizador</field>
+            <field name="implied_ids" eval="[(4, ref('group_horario_role2'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,264 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="torneo.list">
+      <field name="name">torneo list</field>
+      <field name="model">torneo.torneo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="torneo.action_window">
+      <field name="name">torneo window</field>
+      <field name="res_model">torneo.torneo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="torneo.action_server">
+      <field name="name">torneo server</field>
+      <field name="model_id" ref="model_torneos_torneos"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="torneo" id="torneo.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="torneo.menu_1" parent="torneo.menu_root"/>
+    <menuitem name="Menu 2" id="torneo.menu_2" parent="torneo.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="torneo.menu_1_list" parent="torneo.menu_1"
+              action="torneo.action_window"/>
+    <menuitem name="Server to list" id="torneo" parent="torneo.menu_2"
+              action="torneo.action_server"/>
+-->
+
+
+
+
+
+
+    <!-- DEFINICION DE MENUS-->
+
+
+    <!-- <menuitem name="Competidores" id="torneo.competidores_menu" parent="torneo.menu_root" action="torneo.competidores_action_window"/> -->
+
+
+
+
+    <!-- VISTA COMPETIDORES -->
+
+    <record model="ir.ui.view" id="torneo.competidores_view">
+        <field name="name">torneo.competidores.view.tree</field>
+        <field name="model">torneo.competidores</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA COMPETIDORES</h1>
+                </group>
+              </group>
+                  <group col="2">
+                    <field name="dniCompetidor" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="nombreCompetidor" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="fechaNacimiento" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="nombrePokemon" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="edad" style="width:10%%"/>
+                  </group>
+              <notebook>
+                <page string="COMPETICIONES">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="competicion_id" style="10%"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="torneo.competidores_list_view">
+      <field name="name">torneo.ccompetidores.view.tree</field>
+      <field name="model">torneo.competidores</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="dniCompetidor"/>
+          <field name="nombreCompetidor"/>
+          <field name="fechaNacimiento"/>
+          <field name="nombrePokemon"/>
+          <field name="edad"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- VISTA COMPETIDORES -->
+
+        <record model="ir.ui.view" id="torneo.competicion_view">
+        <field name="name">torneo.competicion.view.tree</field>
+        <field name="model">torneo.competicion</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <div class="oe_button_box">
+                <BUTTONS/>
+              </div>
+              <group>
+                <group>
+                  <h1>VISTA COMPETICION</h1>
+                </group>
+              </group>
+                  <group col="2">
+                    <field name="idCompeticion" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="nombreCompeticion" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="fechaCompeticion" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="lugarCompeticion" style="width:20%%"/>
+                  </group>
+                  <group col="2">
+                    <field name="arbitro_id" style="width:20%%"/>
+                  </group>
+              <notebook>
+                <page string="COMPETIDORES">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="competidores_id" style="10%"/>
+                  </group>
+                </page>
+                <page string="ITINERARIO">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="itinerario_id" style="width:100%%"/>
+                  </group>
+                </page>
+                <page string="Reglas">
+                  <group>
+                    <CONTENT/>
+                  </group>
+                  <group col="2">
+                    <field name="reglas_id" style="width:100%%"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="torneo.competicion_list_view">
+      <field name="name">torneo.competicion.view.tree</field>
+      <field name="model">torneo.competicion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idCompeticion"/>
+          <field name="nombreCompeticion"/>
+          <field name="fechaCompeticion"/>
+          <field name="lugarCompeticion"/>
+          <field name="itinerario_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+    <!-- DEFINICION DE MENU -->
+
+    <record model="ir.actions.act_window" id="torneo.competidores_action_window">
+      <field name="name">Competidores</field>
+      <field name="res_model">torneo.competidores</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="torneo.competicion_action_window">
+      <field name="name">Competicion</field>
+      <field name="res_model">torneo.competicion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem name="Torneo" id="torneo.menu_root"/>
+
+    <menuitem name="Torneo" id="torneo.menu_root" web_icon="torneo,static/description/icon.png"/>
+
+    <menuitem name="Competidores" id="torneo.competidores_menu" parent="torneo.menu_root" action="torneo.competidores_action_window"/>
+    <menuitem name="Competicion" id="torneo.competicion_menu" parent="torneo.menu_root" action="torneo.competicion_action_window"/>
+
+  <!--
+    <menuitem name="torneo" id="torneo.menu_root"/>
+
+    <menuitem name="Torneo" id="torneo.competicion_menu" parent="torneo.menu_root" action="torneo.competicion_action_window"/>
+
+    <record model="ir.actions.act_window" id="torneo.competicion.action_window">
+      <field name="name">Competicion</field>
+      <field name="res_model">torneo.competicion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+     VISTA COMPETICION
+
+    <record model="ir.ui.view" id="torneo.competicion_list_view">
+      <field name="name">torneo.competicion.view.tree</field>
+      <field name="model">torneo.competicion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idCompeticion"/>
+          <field name="nombreCompeticion"/>
+          <field name="fechaCompeticion"/>
+          <field name="lugarCompeticion"/>
+        </tree>
+      </field>
+    </record>
+  -->
+  </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.module.category" id="torneo.module_category_torneo">
+            <field name="name">Torneo</field>
+            <field name="description">Gestion y asignacion de torneos</field>
+        </record>
+
+        <record model="res.groups" id="group_torneo_role2">
+            <field name="name">Empleado</field>
+            <field name="category_id" ref="torneo.module_category_torneo"/>
+            <field name="comment">Empleado</field>
+        </record>
+
+        <record model="res.groups" id="group_torneo_role1">
+            <field name="name">Organizador</field>
+            <field name="category_id" ref="torneo.module_category_torneo"/>
+            <field name="comment">Organizador</field>
+            <field name="implied_ids" eval="[(4, ref('group_torneo_role2'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+
+
+    </data>
+</odoo>

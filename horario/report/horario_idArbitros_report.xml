@@ -1,0 +1,50 @@
+<odoo>
+    <record id="horario.idArbitros_report" model="ir.actions.report">
+        <field name="name">Informe del Arbitro</field>
+        <field name="model">horario.arbitros</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">horario.arbitros_report_view</field>
+        <field name="report_file">horario.arbitros_report</field>
+        <field name="binding_model_id" ref="model_horario_arbitros"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="aribtros_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="aribtros">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Informe del Arbitro</h2>
+                        <h3 t-field="arbitros.nombreArbitro"></h3>
+                            <table class="table table-sm o_main_table">
+                                  <thead>
+                                      <tr>
+                                          <th>id</th>
+                                          <th>Nombre</th>
+                                          <th>Description</th>
+                                          <th>Arbitros</th>
+                                      </tr>
+                                  </thead>
+                                <tbody>
+                                    <t t-foreach="arbitros.reglas_ids" t-as="Reglas">
+                                        <tr>
+                                            <td>
+                                                <span t-field="reglas.numeroRegla"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="reglas.nombreRegla"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="reglas.descripcionRegla"/>
+                                            </td>
+
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
