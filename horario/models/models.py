@@ -74,17 +74,17 @@ class itinerario(models.Model):
         ]
         return selection
 
-    @api.constrains('inicioPrimerEncuentro')
+    @api.constrains('inicioPrimerEncuentro', 'inicioTorneo')
     def change_data_field(self):
         he = float(self.inicioPrimerEncuentro)
         hs = float(self.finalPrimerEncuentro)
         if (he > hs):
             raise exceptions.ValidationError("La hora de finalizar el encuentro no puede ser menos que la del inicio")
 
-        #he = float(self.inicioPrimerEncuentro)
-        #ti = float(self.inicioTorneo)
-        #if(ti > he):
-        #    raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")
+        he = float(self.inicioPrimerEncuentro)
+        ti = float(self.inicioTorneo)
+        if(ti > he):
+            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")
 
         he = float(self.inicioSegundoEncuentro)
         hs = float(self.finalSegundoEncuentro)
