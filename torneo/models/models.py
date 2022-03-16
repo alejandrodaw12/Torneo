@@ -81,7 +81,7 @@ class competicion(models.Model):
 
     # Relacion entre modulos
     itinerario_id = fields.Many2many('horario.itinerario', string="Itinerario")
-    arbitro_id = fields.One2many('horario.arbitros', string="Arbitro")
+    arbitro_id = fields.Many2one('horario.arbitros', string="Arbitro")
     reglas_id = fields.Many2many('horario.reglas', string="Reglas")
 
 
