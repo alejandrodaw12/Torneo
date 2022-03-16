@@ -94,7 +94,7 @@ class itinerario(models.Model):
         he = float(self.inicioSegundoEncuentro)
         ti = float(self.inicioTorneo)
         if(ti > he):
-            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")    
+            raise exceptions.ValidationError("La hora de del segundo encuentro no puede menor que el inicio del torneo")    
 
         he = float(self.inicioTerceroEncuentro)
         hs = float(self.finalTerceroEncuentro)
@@ -104,7 +104,7 @@ class itinerario(models.Model):
         he = float(self.inicioTerceroEncuentro)
         ti = float(self.inicioTorneo)
         if(ti > he):
-            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")
+            raise exceptions.ValidationError("La hora de del tercero encuentro no puede menor que el inicio del torneo")
 
         he = float(self.inicioCuartoEncuentro)
         hs = float(self.finalCuartoEncuentro)
@@ -114,7 +114,7 @@ class itinerario(models.Model):
         he = float(self.inicioCuartoEncuentro)
         ti = float(self.inicioTorneo)
         if(ti > he):
-            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")
+            raise exceptions.ValidationError("La hora de del cuarto encuentro no puede menor que el inicio del torneo")
 
 
 class arbitros(models.Model):
@@ -137,7 +137,7 @@ class arbitros(models.Model):
     def _checkEdad(self):
         for arbitros in self:
             if (arbitros.edad < 18):
-                raise exceptions.ValidationError("El competidor no puede ser menor de edad")
+                raise exceptions.ValidationError("El arbitro no puede ser menor de edad")
 
     @api.constrains('dniArbitro')
     def _checkDNI(self):
