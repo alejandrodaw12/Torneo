@@ -91,16 +91,30 @@ class itinerario(models.Model):
         if (he > hs):
             raise exceptions.ValidationError("La hora de finalizar el encuentro no puede ser menos que la del inicio")
 
+        he = float(self.inicioSegundoEncuentro)
+        ti = float(self.inicioTorneo)
+        if(ti > he):
+            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")    
+
         he = float(self.inicioTerceroEncuentro)
         hs = float(self.finalTerceroEncuentro)
         if (he > hs):
             raise exceptions.ValidationError("La hora de finalizar el encuentro no puede ser menos que la del inicio")
+
+        he = float(self.inicioTerceroEncuentro)
+        ti = float(self.inicioTorneo)
+        if(ti > he):
+            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")
 
         he = float(self.inicioCuartoEncuentro)
         hs = float(self.finalCuartoEncuentro)
         if (he > hs):
             raise exceptions.ValidationError("La hora de finalizar el encuentro no puede ser menos que la del inicio")
 
+        he = float(self.inicioCuartoEncuentro)
+        ti = float(self.inicioTorneo)
+        if(ti > he):
+            raise exceptions.ValidationError("La hora de del primer encuentro no puede menor que el inicio del torneo")
 
 
 class arbitros(models.Model):
