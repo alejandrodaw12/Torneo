@@ -29,7 +29,7 @@ class itinerario(models.Model):
 
     # Atributos
     nombreItinerario = fields.Char(string='Nombre', required=True)
-    inicioTorneo = fields.Selection(string='Inicio del Torneo', selection=[('f','9:00'),('b','16:00'), ('c','20:00')], help='Itinerario del Torneo' )
+    inicioTorneo = fields.Selection(string='Inicio del Torneo', selection='_get_valid_hours', default='8.5', required=True, help='Itinerario del Torneo' )
 
     inicioPrimerEncuentro = fields.Selection(string='1 Inicio', selection='_get_valid_hours', default='8.5', required=True)
     finalPrimerEncuentro = fields.Selection(string='1 Fin', selection='_get_valid_hours', default='15', required=True)
