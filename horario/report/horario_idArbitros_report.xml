@@ -9,7 +9,7 @@
         <field name="binding_type">report</field>
     </record>
 
-    <template id="aribtros_report_view">
+    <template id="arbitros_report_view">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="aribtros">
                 <t t-call="web.external_layout">
